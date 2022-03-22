@@ -41,7 +41,7 @@ void ALaunchPad::HandleOverlap(UPrimitiveComponent* OverlappedComp, AActor* Othe
 	{
 		if (OtherComp && OtherComp->IsSimulatingPhysics())
 		{
-			OtherComp->AddForce(Direction*70.f, NAME_None, true);
+			OtherComp->AddForce(Direction*65.f, NAME_None, true);
 		}
 	}
 }

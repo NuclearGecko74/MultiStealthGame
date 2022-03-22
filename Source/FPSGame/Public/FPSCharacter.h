@@ -76,5 +76,7 @@ public:
 
 	UPROPERTY(BlueprintReadOnly)
 	bool bIsCarryingObjective;
+
+	virtual void Tick(float DeltaSeconds) override;
 };
 

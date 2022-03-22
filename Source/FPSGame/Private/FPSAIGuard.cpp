@@ -5,7 +5,7 @@
 
 #include "DrawDebugHelpers.h"
 #include "FPSGameMode.h"
-#include "Kismet/KismetMathLibrary.h"
+#include "Net/UnrealNetwork.h"
 #include "Perception/PawnSensingComponent.h"
 
 // Sets default values
@@ -88,6 +88,17 @@ void AFPSAIGuard::SetGuardState(EAIState NewState)
 	if (NewState == GuardState) { return; }
 
 	GuardState = NewState;
+	OnRep_GuardState();
+}
 
+void AFPSAIGuard::OnRep_GuardState()
+{
 	OnStateChanged(GuardState);
+}
+
+void AFPSAIGuard::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME(AFPSAIGuard, GuardState);
 }

@@ -3,3 +3,7 @@
 
 #include "FPSPlayerController.h"
 
+void AFPSPlayerController::ChangeMap(FString URL)
+{
+	ClientTravel(URL, ETravelType::TRAVEL_Absolute);
+}
